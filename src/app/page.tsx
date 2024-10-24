@@ -6,7 +6,7 @@ import { Italianno } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import citations from "../../public/citations.json";
 
-type Citation = {
+export type Citation = {
   id: number;
   texte: string;
   auteur: string;

@@ -1,8 +1,11 @@
+import { Citation } from '@/app/page';
 import fs from 'fs';
 import path from 'path';
 
+type AugmentedCitations = Citation & { imageData: string };
+
 // Assurez-vous que le répertoire pour les citations existe
-const saveImage = (citation: any) => {
+const saveImage = (citation: AugmentedCitations) => {
   console.log('citation', citation.id);
   const dir = path.join(process.cwd(), 'public', 'citations');
   const fileName = `${citation.id}.png`; // Remplacer / par -
@@ -20,7 +23,7 @@ const saveImage = (citation: any) => {
 };
 
 export async function POST(request: Request) {
-  const { citations } = await request.json();
+  const { citations }: { citations: AugmentedCitations[] } = await request.json();
 
   citations.forEach(citation => {
     saveImage(citation);
