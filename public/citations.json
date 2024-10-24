@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "texte": "Whereas recognition of the inherent dignity",
+    "auteur": "United Nations",
+    "date": "20/12/2021"
+  },
+  {
+    "id": 2,
+    "texte": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+    "auteur": "Ralph Waldo Emerson",
+    "date": "15/05/2020"
+  },
+  {
+    "id": 3,
+    "texte": "Life is what happens when you're busy making other plans.",
+    "auteur": "John Lennon",
+    "date": "10/09/2019"
+  }
+]

@@ -1,101 +1,145 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { AnimatePresence, motion } from "framer-motion";
+import { Share2 } from "lucide-react";
+import { Italianno } from "next/font/google";
+import { useEffect, useRef, useState } from "react";
+import citations from "../../public/citations.json";
+
+type Citation = {
+  id: number;
+  texte: string;
+  auteur: string;
+  date?: string;
+};
+
+const citationFont = Italianno({
+  weight: "400",
+  display: "swap",
+  subsets: ["latin"],
+});
+
+const AnimatedText = ({
+  className,
+  text,
+  isQuote = false,
+}: {
+  className?: string;
+  text: string;
+  isQuote?: boolean;
+}) => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <motion.span
+      initial={{ opacity: 0, y: 10, x: 20 }}
+      animate={{ opacity: 1, y: 0, x: 0 }}
+      transition={{
+        duration: 0.2,
+        delay: isQuote ? 0.5 : 0,
+        ease: [0.2, 0.65, 0.3, 0.9],
+      }}
+      className={`inline-block ${className}`}
+    >
+      {isQuote ? [`"`, ...text, `"`] : text}
+    </motion.span>
+  );
+};
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+export default function CitationCalligrafiquePartageable() {
+  const [citation, setCitation] = useState<Citation>({
+    id: 0,
+    texte: "...",
+    auteur: "--",
+    date: undefined,
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [firstAnimation, setFirstAnimation] = useState(true);
+  const [key, setKey] = useState(0);
+  const citationRef = useRef<HTMLDivElement>(null);
+
+  const chargerCitationAleatoire = () => {
+    setIsLoading(true);
+    setTimeout(
+      () => {
+        const citationAleatoire =
+          citations[Math.floor(Math.random() * citations.length)];
+        setCitation(citationAleatoire);
+        setIsLoading(false);
+        setKey((prevKey) => prevKey + 1);
+      },
+      firstAnimation ? 0 : 500
+    );
+  };
+
+  useEffect(() => {
+    chargerCitationAleatoire();
+  }, []);
+
+  useEffect(() => {
+    setFirstAnimation(false);
+  }, [isLoading]);
+
+  const shareImage = async () => {
+    const imageUrl = `/citations/${citation.id}.png`;
+
+    // Instagram URL Scheme for sharing to Stories
+    const instagramUrl = `instagram://story?source_url=${encodeURIComponent(
+      imageUrl
+    )}`;
+
+    // Open the Instagram app if installed
+    window.open(instagramUrl, "_blank");
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-stone-100 px-4">
+      <div ref={citationRef} className="text-center p-8 rounded-lg">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={key}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            <blockquote className="mb-4 text-2xl text-stone-800">
+              <AnimatedText
+                className={`${citationFont.className} text-4xl`}
+                text={citation.texte}
+                isQuote={true}
+              />
+            </blockquote>
+            <cite className="flex justify-end text-sm text-stone-600">
+              —{" "}
+              <AnimatedText
+                text={` ${citation.auteur}${
+                  citation.date ? ` ${citation.date}` : ""
+                }`}
+              />
+            </cite>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="flex space-x-4 mt-8">
+        <button
+          onClick={chargerCitationAleatoire}
+          disabled={isLoading}
+          className="px-4 py-2 text-sm text-stone-400 hover:text-stone-600 transition-colors duration-300 focus:outline-none"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          {isLoading ? "Chargement..." : "Nouvelle citation"}
+        </button>
+        <button
+          onClick={shareImage}
+          className="px-4 py-2 text-sm text-stone-400 hover:text-stone-600 transition-colors duration-300 focus:outline-none flex items-center"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Share2 className="w-4 h-4 mr-2" />
+          <p>Partager</p>
+        </button>
+      </div>
+
+      <div className="absolute bottom-2 right-2 text-xs text-stone-300">
+        {citations.length} citations disponibles
+      </div>
     </div>
   );
 }
