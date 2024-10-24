@@ -79,7 +79,7 @@ export default function CitationCalligrafiquePartageable() {
   }, [isLoading]);
 
   const shareImage = async () => {
-    const imageUrl = `/citations/${citation.id}.png`;
+    const imageUrl = `https://github.com/Lu-Ks/citations/tree/main/public/citations/${citation.id}.png`;
 
     // Instagram URL Scheme for sharing to Stories
     const instagramUrl = `instagram://story?source_url=${encodeURIComponent(

@@ -1,20 +1,99 @@
 [
   {
     "id": 1,
-    "texte": "Whereas recognition of the inherent dignity",
-    "auteur": "United Nations",
-    "date": "20/12/2021"
+    "texte": "Il y a un million de raison d'abandonner, il faut juste trouver la raison de continuer.",
+    "auteur": "Charles Vermeire"
   },
   {
     "id": 2,
-    "texte": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
-    "auteur": "Ralph Waldo Emerson",
-    "date": "15/05/2020"
+    "texte": "On déteste les nazis, la racaille, ça dégage.",
+    "auteur": "Charles Vermeire"
   },
   {
     "id": 3,
-    "texte": "Life is what happens when you're busy making other plans.",
-    "auteur": "John Lennon",
-    "date": "10/09/2019"
+    "texte": "Il vaut mieux avoir mal au cou qu'aux couilles. ",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 4,
+    "texte": "La défaite (fifa) c'est le début du succès",
+    "auteur": "Charles Vermeire",
+    "date": "22/10/2024"
+  },
+  {
+    "id": 5,
+    "texte": "On ne s'assoit pas dans un siège, la tête la première.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 6,
+    "texte": "On ne met pas un fauteuil, dos a l'écran.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 7,
+    "texte": "J'avais zappé.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 8,
+    "texte": "La vie c'est pas un brownie.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 9,
+    "texte": "Windows quand ça bug, faut reboot.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 10,
+    "texte": "Aujourd'hui, j'ai vraiment hâte de creuver.",
+    "auteur": "Charles Vermeire",
+    "date": "22/10/2024"
+  },
+  {
+    "id": 11,
+    "texte": "J'suis pas payé à faire du câble management.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 12,
+    "texte": "C'est pas une citation de Charles Vermeire ça.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 13,
+    "texte": "J'ai envie de me foutre en l'air pourtant, j'ai pas peur d'être heureux.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 14,
+    "texte": "Rentre bien, pas de bêtises.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 15,
+    "texte": "Si on se voit plus, on porte des lunettes.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 16,
+    "texte": "Si t'as besoin de moi, m'apelle pas.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 17,
+    "texte": "Charles Vermeire n'a qu'une parole.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 18,
+    "texte": "Charles ne se trompe jamais, c'est la vérité qui se trompe.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 19,
+    "texte": "Elle a voulu quitter le navire, on l'a jeté par-dessus bord.",
+    "auteur": "Charles Vermeire"
   }
 ]
