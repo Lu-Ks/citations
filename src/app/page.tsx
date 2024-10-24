@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Share2 } from "lucide-react";
+// import { Share2 } from "lucide-react";
 import { Italianno } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import citations from "../../public/citations.json";
@@ -78,17 +78,17 @@ export default function CitationCalligrafiquePartageable() {
     setFirstAnimation(false);
   }, [isLoading]);
 
-  const shareImage = async () => {
-    const imageUrl = `https://raw.githubusercontent.com/Lu-Ks/citations/refs/heads/main/public/citations/${citation.id}.png`;
+  // const shareImage = async () => {
+  //   const imageUrl = `https://raw.githubusercontent.com/Lu-Ks/citations/refs/heads/main/public/citations/${citation.id}.png`;
 
-    // Instagram URL Scheme for sharing to Stories
-    const instagramUrl = `instagram://story?source_url=${encodeURIComponent(
-      imageUrl
-    )}`;
+  //   // Instagram URL Scheme for sharing to Stories
+  //   const instagramUrl = `instagram://story?source_url=${encodeURIComponent(
+  //     imageUrl
+  //   )}`;
 
-    // Open the Instagram app if installed
-    window.open(instagramUrl, "_blank");
-  };
+  //   // Open the Instagram app if installed
+  //   window.open(instagramUrl, "_blank");
+  // };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-stone-100 px-4">
@@ -128,13 +128,13 @@ export default function CitationCalligrafiquePartageable() {
         >
           {isLoading ? "Chargement..." : "Nouvelle citation"}
         </button>
-        <button
+        {/* <button
           onClick={shareImage}
           className="px-4 py-2 text-sm text-stone-400 hover:text-stone-600 transition-colors duration-300 focus:outline-none flex items-center"
         >
           <Share2 className="w-4 h-4 mr-2" />
           <p>Partager</p>
-        </button>
+        </button> */}
       </div>
 
       <div className="absolute bottom-2 right-2 text-xs text-stone-300">
