@@ -16,7 +16,7 @@
   },
   {
     "id": 4,
-    "texte": "La défaite (fifa) c'est le début du succès",
+    "texte": "La défaite c'est le début du succès",
     "auteur": "Charles Vermeire",
     "date": "22/10/2024"
   },
@@ -47,7 +47,7 @@
   },
   {
     "id": 10,
-    "texte": "Aujourd'hui, j'ai vraiment hâte de creuver.",
+    "texte": "Aujourd'hui, j'ai vraiment hâte de crever.",
     "auteur": "Charles Vermeire",
     "date": "22/10/2024"
   },
@@ -68,7 +68,7 @@
   },
   {
     "id": 14,
-    "texte": "Rentre bien, pas de bêtises.",
+    "texte": "Rentres bien, pas de bêtises.",
     "auteur": "Charles Vermeire"
   },
   {
@@ -94,6 +94,26 @@
   {
     "id": 19,
     "texte": "Elle a voulu quitter le navire, on l'a jeté par-dessus bord.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 20,
+    "texte": "J'ai pas de temps à perdre, j'ai un train à prendre.",
+    "auteur": "Copilote"
+  },
+  {
+    "id": 21,
+    "texte": "MAIS WHAAAAAAAAAT ???",
+    "auteur": "Valéry H."
+  },
+  {
+    "id": 22,
+    "texte": "Les Vermeire ne sont pas des Chabert.",
+    "auteur": "Charles Vermeire"
+  },
+  {
+    "id": 23,
+    "texte": "Inch'Arles'Ah",
     "auteur": "Charles Vermeire"
   }
 ]
